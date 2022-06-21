@@ -1,6 +1,7 @@
 
 import 'package:examapp/core/constants/colors/color_const.dart';
 import 'package:examapp/core/constants/font/font_style.dart';
+import 'package:examapp/core/constants/pmconst/pm_const.dart';
 import 'package:examapp/core/extensions/context_extension.dart';
 import 'package:examapp/screens/authentication/cubit/auth_cubit.dart';
 import 'package:examapp/widgets/textform/buttons/elevated_button.dart';
@@ -9,9 +10,23 @@ import 'package:flutter/material.dart';
 
 class AuthWidget extends StatelessWidget {
   final AuthCubit data;
+  final String mainText;
+  final String passwordText;
+  final String secondText;
+  final String haveAccount;
+  final Widget? forgotPassword;
+  final VoidCallback elevatedButtonOnPressed;
+  final VoidCallback changeState;
   const AuthWidget({
     Key? key,
     required this.data,
+    required this.mainText,
+    required this.passwordText,
+    required this.secondText,
+    required this.haveAccount,
+    required this.elevatedButtonOnPressed,
+    required this.changeState,
+    this.forgotPassword,
   }) : super(key: key);
 
 
@@ -21,7 +36,7 @@ class AuthWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: context.h * 0.1),
-        Text("Sign Up", style: FStyles.headline2s),
+        Text(mainText, style: FStyles.headline2s),
         SizedBox(height: context.h * 0.04),
         Form(
           child: Column(
@@ -32,29 +47,40 @@ class AuthWidget extends StatelessWidget {
                   controller: data.emailController),
               SizedBox(height: context.h * 0.03),
               MyTextField.textField(
-                  text: "Create new password",
+                  text: passwordText,
                   controller: data.passwordController),
             ],
           ),
         ),
-        SizedBox(height: context.h * 0.06),
+        Padding(
+          padding: PMconst.extraSmall,
+          child: SizedBox(
+            height: context.h * 0.04,
+            width: context.h,
+            child: InkWell(
+              child: forgotPassword,
+            )
+          ),
+        ),
         ElevatedButtonWidget(
             height: context.h * 0.07,
             width: context.w,
-            child: Text("Sign Up", style: FStyles.headline3s),
-            onPressed: () {}),
+            child: Text(mainText, style: FStyles.headline3s),
+            onPressed: elevatedButtonOnPressed
+            ),
         SizedBox(height: context.h * 0.03),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
+          children: [
             InkWell(
+              onTap: changeState,
               child: Text(
-                "Log In,",
+                secondText,
                 style: FStyles.headline4sbold,
               ),
             ),
             Text(
-              " if you have an account",
+              haveAccount,
               style: FStyles.headline4text,
             )
           ],
@@ -88,8 +114,8 @@ class AuthWidget extends StatelessWidget {
         const Spacer(),
         Column(
           children: [
-            const Text(
-              "By clicking \"Sign Up\" button, you accept the ",
+            Text(
+              "By clicking \"$mainText\" button, you accept the ",
               style: FStyles.headline5text,
             ),
             Row(
@@ -107,3 +133,6 @@ class AuthWidget extends StatelessWidget {
     );
   }
 }
+
+
+// Text("Forgot Password?", style: FStyles.headline5text, textAlign: TextAlign.end,)
