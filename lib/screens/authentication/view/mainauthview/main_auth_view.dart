@@ -1,6 +1,7 @@
 import 'package:examapp/core/constants/colors/color_const.dart';
 import 'package:examapp/screens/authentication/cubit/auth_cubit.dart';
 import 'package:examapp/screens/authentication/state/auth_state.dart';
+import 'package:examapp/screens/authentication/view/pages/signin_view.dart';
 import 'package:examapp/screens/authentication/view/pages/signup_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +26,7 @@ class MainAuthView extends StatelessWidget {
           if (state is SignUpState) {
             return SignUpView();
           } else if(state is SignInState){
-            return Center(child: Text("SignIn"));
+            return SignInView();
           } else if(state is ForgotPasswordState){
             return Center(child: Text("Forgot Password"));
           }

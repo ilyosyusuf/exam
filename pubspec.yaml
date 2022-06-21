@@ -37,6 +37,7 @@ dependencies:
   flutter_svg: ^1.1.0
   bloc: ^8.0.3
   flutter_bloc: ^8.0.1
+  animate_do: ^2.1.0
 
 dev_dependencies:
   flutter_test:

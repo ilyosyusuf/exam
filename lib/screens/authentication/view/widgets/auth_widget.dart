@@ -1,4 +1,3 @@
-
 import 'package:examapp/core/constants/colors/color_const.dart';
 import 'package:examapp/core/constants/font/font_style.dart';
 import 'package:examapp/core/constants/pmconst/pm_const.dart';
@@ -29,7 +28,6 @@ class AuthWidget extends StatelessWidget {
     this.forgotPassword,
   }) : super(key: key);
 
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -43,31 +41,28 @@ class AuthWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               MyTextField.textField(
-                  text: "Email adress",
-                  controller: data.emailController),
+                  text: "Email adress", controller: data.emailController),
               SizedBox(height: context.h * 0.03),
               MyTextField.textField(
-                  text: passwordText,
-                  controller: data.passwordController),
+                  text: passwordText, controller: data.passwordController),
             ],
           ),
         ),
         Padding(
           padding: PMconst.extraSmall,
           child: SizedBox(
-            height: context.h * 0.04,
-            width: context.h,
-            child: InkWell(
-              child: forgotPassword,
-            )
-          ),
+              height: context.h * 0.04,
+              width: context.h,
+              child: InkWell(
+                onTap: changeState,
+                child: forgotPassword,
+              )),
         ),
         ElevatedButtonWidget(
             height: context.h * 0.07,
             width: context.w,
             child: Text(mainText, style: FStyles.headline3s),
-            onPressed: elevatedButtonOnPressed
-            ),
+            onPressed: elevatedButtonOnPressed),
         SizedBox(height: context.h * 0.03),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -94,7 +89,7 @@ class AuthWidget extends StatelessWidget {
               color: ColorConst.formFieldColor,
             )),
             SizedBox(width: context.w * 0.05),
-            Text("or continue with"),
+            const Text("or continue with"),
             SizedBox(width: context.w * 0.05),
             const Expanded(
                 child: Divider(
@@ -126,13 +121,10 @@ class AuthWidget extends StatelessWidget {
                 InkWell(child: Text("Privacy Policy")),
               ],
             ),
-        SizedBox(height: context.h * 0.01),
+            SizedBox(height: context.h * 0.01),
           ],
         )
       ],
     );
   }
 }
-
-
-// Text("Forgot Password?", style: FStyles.headline5text, textAlign: TextAlign.end,)
