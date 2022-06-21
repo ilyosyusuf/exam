@@ -1,3 +1,4 @@
+import 'package:examapp/core/components/check_validator.dart';
 import 'package:examapp/core/constants/colors/color_const.dart';
 import 'package:examapp/core/constants/font/font_style.dart';
 import 'package:examapp/core/constants/pmconst/pm_const.dart';
@@ -16,6 +17,7 @@ class AuthWidget extends StatelessWidget {
   final Widget? forgotPassword;
   final VoidCallback elevatedButtonOnPressed;
   final VoidCallback changeState;
+  final VoidCallback? changeStatePassword;
   const AuthWidget({
     Key? key,
     required this.data,
@@ -25,6 +27,7 @@ class AuthWidget extends StatelessWidget {
     required this.haveAccount,
     required this.elevatedButtonOnPressed,
     required this.changeState,
+    this.changeStatePassword,
     this.forgotPassword,
   }) : super(key: key);
 
@@ -54,7 +57,7 @@ class AuthWidget extends StatelessWidget {
               height: context.h * 0.04,
               width: context.h,
               child: InkWell(
-                onTap: changeState,
+                onTap: changeStatePassword,
                 child: forgotPassword,
               )),
         ),

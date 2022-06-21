@@ -35,6 +35,9 @@ class SignInView extends StatelessWidget {
               haveAccount: " if you have not registered yet",
               forgotPassword: Text("Forgot Password?",
                   style: FStyles.headline5text, textAlign: TextAlign.end),
+              changeStatePassword: () {
+                dataFunctions.changeState(ForgotPasswordState());
+              },
               elevatedButtonOnPressed: () {},
               changeState: () {
                 dataFunctions.changeState(SignUpState());
