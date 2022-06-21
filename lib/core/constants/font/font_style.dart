@@ -9,6 +9,7 @@ class FStyles {
   static const TextStyle headline3blue = TextStyle(fontSize: FSize.medium, fontWeight: FWeight.bold, color: ColorConst.whiteColor);
   static const TextStyle headline3s = TextStyle(fontSize: FSize.medium, fontWeight: FWeight.bold, color: ColorConst.whiteColor);
   static const TextStyle headline4s = TextStyle(fontSize: FSize.medium, color: ColorConst.whiteColor);
+  static const TextStyle headline4text = TextStyle(fontSize: FSize.medium, color: Color.fromARGB(255, 122, 122, 122));
   static const TextStyle headline4sbold = TextStyle(fontSize: FSize.medium, fontWeight: FWeight.bold, color: ColorConst.whiteColor);
   static const TextStyle headline5s = TextStyle(fontSize: FSize.medium, color: ColorConst.whiteColor);
   static const TextStyle headline52 = TextStyle(fontSize: FSize.medium2, color: ColorConst.whiteColor);

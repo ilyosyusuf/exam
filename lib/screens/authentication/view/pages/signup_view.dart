@@ -2,6 +2,7 @@ import 'package:examapp/core/constants/colors/color_const.dart';
 import 'package:examapp/core/constants/font/font_style.dart';
 import 'package:examapp/core/extensions/context_extension.dart';
 import 'package:examapp/screens/authentication/cubit/auth_cubit.dart';
+import 'package:examapp/widgets/textform/buttons/elevated_button.dart';
 import 'package:examapp/widgets/textform/text_form_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -19,13 +20,14 @@ class SignUpView extends StatelessWidget {
   Scaffold signupScaffold(BuildContext context) {
     var data = context.watch<AuthCubit>();
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: ColorConst.kPrimaryColor,
       body: SafeArea(
         bottom: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: context.h * 0.15),
+            SizedBox(height: context.h * 0.1),
             Text("Sign Up", style: FStyles.headline2s),
             SizedBox(height: context.h * 0.04),
             Form(
@@ -42,14 +44,34 @@ class SignUpView extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 65),
+            SizedBox(height: context.h * 0.06),
+            ElevatedButtonWidget(
+              height: context.h * 0.07,
+              width: context.w,
+              child: Text("Sign Up", style: FStyles.headline3s), onPressed: (){
+
+            }),
+            SizedBox(height: context.h * 0.03),
             Row(
-              children: const [
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                InkWell(
+                  child: Text("Log In,", style: FStyles.headline4sbold,),
+                ),
+                Text(" if you have an account", style: FStyles.headline4text,)
+              ],
+            ),
+            SizedBox(height: context.h * 0.03),
+            Row(
+              children: [
                 Expanded(
                     child: Divider(
                   thickness: 1,
+                  color: ColorConst.formFieldColor,
                 )),
+                SizedBox(width: context.w * 0.05),
                 Text("or continue with"),
+                SizedBox(width: context.w * 0.05),
                 Expanded(
                     child: Divider(
                   thickness: 1,
