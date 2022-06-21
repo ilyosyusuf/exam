@@ -10,4 +10,7 @@ class SignInState extends AuthState {
   SignInState();
 }
 
+class ForgotPasswordState extends AuthState {
+  ForgotPasswordState();
+}
 

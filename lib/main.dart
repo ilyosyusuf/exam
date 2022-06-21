@@ -1,3 +1,5 @@
+import 'package:examapp/config/init/navigation/navigator.dart';
+import 'package:examapp/config/routes/page_routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,11 +12,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'UBC',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        useMaterial3: true, colorScheme: ColorScheme.dark()
       ),
-      home: const MyHomePage(),
+      navigatorKey: NavigationService.instance.navigatorKey,
+      initialRoute: '/mainauthview',
+      onGenerateRoute: MyRoute.instance.onGenerateRoute
     );
   }
 }
