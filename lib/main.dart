@@ -1,5 +1,6 @@
 import 'package:examapp/config/init/navigation/navigator.dart';
 import 'package:examapp/config/routes/page_routes.dart';
+import 'package:examapp/config/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,9 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'UBC',
-      theme: ThemeData(
-        useMaterial3: true, colorScheme: ColorScheme.dark()
-      ),
+      theme: AppTheme.apptheme,
       navigatorKey: NavigationService.instance.navigatorKey,
       initialRoute: '/mainauthview',
       onGenerateRoute: MyRoute.instance.onGenerateRoute
